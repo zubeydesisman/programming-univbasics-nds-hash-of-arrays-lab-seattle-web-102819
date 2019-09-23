@@ -109,5 +109,5 @@ This concludes our learning of the "basic" nested data structures
 * Hashes of Arrays
 
 By mixing these four "basic" nested data structures, we can build complex data
-structures that can be "mixed" to model our world's complexity as a data
-structure from which Ruby can help us generate _insights_.
+structures that model our world's complexity as a data structures which Ruby
+can process &mdash; with our help! &mdash; to generate _insights_.
