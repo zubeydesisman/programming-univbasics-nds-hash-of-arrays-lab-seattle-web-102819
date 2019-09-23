@@ -14,25 +14,24 @@ The final "basic" nested structure is the `Hash` of `Array`s.
 ### Key Image: Result Set
 
 The key image is to think of a result set. You might think of it as a weather
-report where you sample a measurement multiple times per day. You might track
-`:temperature` at midnight, noon, and 6:00 p.m. Or you might track an
-insulin level every two hours as an `Array` pointed to by the key
-`:insulin_level`.
+report for a day where you sample different measurements multiple times per
+day. You might track `:temperature` at midnight, noon, and 6:00 p.m.;
+`:rainfall_level` at midnight, noon, and 6:00pm; and `:humidity` at midnight,
+noon, and 6:00pm. Those sample results would go inside of `Array`s that are
+accessible via the keys `:temperature`, `:rainfall_level`, and `:humidity`.
 
 ## Recognize Vocabulary Term: "Hash of Arrays"
 
 "`Hash` of `Array`s" is an infrequently used term. As you get more experienced
-with Ruby, it's typical to merely know that a `Hash`'s key might point to a
-scalar value (`1.0`, `"Smith"`) or to an `Array`. While we're starting out with
-learning Ruby, though, let's briefly take time to acknowledge that it exists.
-
-If a colleague suggests storing the data as a `Hash` of `Array`s, you'll know
-what to code.
+with Ruby, it's typical to merely know that a `Hash`'s key might point to
+scalar values (`1.0`, `"Smith"`) or to an `Array`. While we're starting out
+with learning Ruby, though, let's briefly take time to acknowledge that this
+basic NDS exists.
 
 ## Create a `Hash` of `Array`s
 
-It's most common to create `Hash` of `Array`s in the "literal" format.
-Here's a "result set:"
+It's most common to create `Hash` of `Array`s in the "literal" format. We'll
+build on our weather example.
 
 ```ruby
 daily_weather = {
@@ -73,13 +72,31 @@ Again, providing a key and an index will let you modify the inner `Array`s:
 ```ruby
 daily_weather = {
   temperature: [75, 80, 72],
-  precipitation: [0.0, 0.01, 0.03]
-  wind_velocity: [4, 3, 2]
+  precipitation: [0.0, 0.01, 0.03],
+  wind_velocity: [4, 3, 2],
   barometric_pressure: [30.32, 30.30, 30.20]
 }
 
 daily_weather[:temperature][2] = 74 #=> 74
 daily_weather[:temperature][2] #=> 74
+```
+
+Most often, we modify data in an HoA by using the _key_ to get a hold of the
+`Array` so that we can use `Array` methods on the inner `Array`. Let's suppose
+we're adding new measurements for the day.
+
+```ruby
+daily_weather = {
+  :temperature => [75, 80, 72],
+  :precipitation => [0.0, 0.01, 0.03],
+  :wind_velocity => [4, 3, 2],
+  :barometric_pressure => [30.32, 30.30, 30.20]
+}
+
+daily_weather[:temperature] << 76 #=> [75, 80, 72, 76]
+daily_weather[:precipitation] << 1.01 #=> [0.0, 0.01, 0.03, 1.01]
+daily_weather[:wind_velocity] << 2.2 #=> [4, 3, 2, 2.2]
+daily_weather[:barometric_pressure] << 28.0 #=> [30.32, 30.3, 30.2, 28.0]
 ```
 
 ## Conclusion
