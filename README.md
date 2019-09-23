@@ -99,6 +99,10 @@ daily_weather[:wind_velocity] << 2.2 #=> [4, 3, 2, 2.2]
 daily_weather[:barometric_pressure] << 28.0 #=> [30.32, 30.3, 30.2, 28.0]
 ```
 
+## Lab
+
+Guided by the tests, make sure that you are able to update and read from a HoA.
+
 ## Conclusion
 
 This concludes our learning of the "basic" nested data structures
