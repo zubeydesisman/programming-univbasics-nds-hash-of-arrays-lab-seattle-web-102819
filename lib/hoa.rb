@@ -1,3 +1,4 @@
+require "pry"
 BASE_HOA = {
   :chipmunks => ["Alvin", "Simon", "Theodore"],
   :third_earthers => ["Lion-O", "Cheetara", "Mumm-Ra (the ever-living)"],
